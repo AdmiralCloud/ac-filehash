@@ -22,6 +22,7 @@
   "scripts": {
     "pretest": "./test/prepareTest.sh",
     "test": "mocha --timeout 15000 --reporter spec",
+    "precoverage": "./test/prepareTest.sh",
     "coverage": "nyc mocha --timeout 15000 --reporter spec"
   }
 }
