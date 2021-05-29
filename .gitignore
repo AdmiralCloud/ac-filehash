@@ -32,3 +32,4 @@ report.xml
 .jenkins.conf
 demo.js
 testfile.mp4
+.npmrc
