@@ -1,0 +1,34 @@
+########################
+# NODE
+########################
+
+node_modules
+npm-debug.log
+**/logs/**
+.nyc_output**
+
+########################
+# misc / editors
+########################
+
+*~
+*#
+**/.DS_STORE/**
+**/.netbeans/**
+**/nbproject/**
+**/.idea/**
+**/tracegl.js/**
+**/sftp-config.json/**
+**/tmp/**
+
+########################
+# docs / tests
+########################
+report.xml
+
+########################
+# local config
+########################
+.jenkins.conf
+demo.js
+testfile.mp4

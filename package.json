@@ -1,0 +1,27 @@
+{
+  "name": "ac-filehash",
+  "description": "Create a hash for local files or from URL without loading the complete file",
+  "version": "0.0.1",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "repository": "https://github.com/admiralcloud/ac-filehash",
+  "license": "MIT",
+  "author": "Julius Eckert <julius.eckert@admiralcloud.com> (https://www.admiralcloud.com/)",
+  "contributors": [
+    "Patrick Loboda <patrick.loboda@admiralcloud.com> (https://www.admiralcloud.com/)",
+    "Mark Poepping <mark.poepping@admiralcloud.com> (https://www.admiralcloud.com/)"
+  ],
+  "devDependencies": {
+    "ac-semantic-release": "^0.2.5",
+    "eslint": "^7.26.0",
+    "expect": "^26.6.2",
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0"
+  },
+  "scripts": {
+    "pretest": "./test/prepareTest.sh",
+    "test": "mocha --timeout 15000 --reporter spec",
+    "coverage": "nyc mocha --timeout 15000 --reporter spec"
+  }
+}
