@@ -3,6 +3,9 @@ Create a hash from a file. The source can be a local file or an URL.
 
 This hash is created using 3 sections of the file - one at the beginning, one in the middle and one at the end. This way, a hash can be easily and fast created even for large files.
 
+![example workflow](https://github.com/admiralcloud/ac-filehash/actions/workflows/node.js.yml/badge.svg)
+
+
 # Usage
 ```
 const acfh = require('ac-filehash)
