@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE= ./test/testfile.mp4
+FILE=./test/testfile.mp4
 
 echo "Checking local test file -> $FILE"
 if [ -f $FILE ]; then
