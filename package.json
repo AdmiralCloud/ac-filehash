@@ -1,7 +1,7 @@
 {
   "name": "ac-filehash",
   "description": "Create a hash for local files or from URL without loading the complete file",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "axios": "^0.26.1"
   },
