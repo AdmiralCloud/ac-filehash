@@ -1,7 +1,7 @@
 {
   "name": "ac-filehash",
   "description": "Create a hash for local files or from URL without loading the complete file",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "dependencies": {
     "axios": "^0.26.1",
     "spark-md5": "^3.0.2"

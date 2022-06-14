@@ -1,3 +1,23 @@
+<a name="0.1.0"></a>
+ 
+# [0.1.0](https://github.com/admiralcloud/ac-filehash/compare/v0.0.3..v0.1.0) (2022-06-14 16:05:58)
+
+
+### Feature
+
+* **App:** browser support | MD | [9d93ec756595bcc7cad59ddd6c6b5d8c89086689](https://github.com/admiralcloud/ac-filehash/commit/9d93ec756595bcc7cad59ddd6c6b5d8c89086689)    
+make ac-filehash work in the browser  
+Related issues: [undefined/undefined#develop-md](undefined/browse/develop-md)
+### Tests
+
+* **App:** tests for browser functions | MD | [dc14e7995177f540702ec919d9636496ea4b7a4d](https://github.com/admiralcloud/ac-filehash/commit/dc14e7995177f540702ec919d9636496ea4b7a4d)    
+add tests for browser hashing functions  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
+### Documentation
+
+* **App:** update readme | MD | [8f7ffecbc1128dd20ef626af02b7e16c9e4e1ef0](https://github.com/admiralcloud/ac-filehash/commit/8f7ffecbc1128dd20ef626af02b7e16c9e4e1ef0)    
+updated readme with browser functionality  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
 <a name="0.0.3"></a>
 
 ## [0.0.3](https://github.com/admiralcloud/ac-filehash/compare/v0.0.2..v0.0.3) (2022-04-05 11:50:06)
