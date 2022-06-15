@@ -61,12 +61,12 @@ let test = async () => {
   }
 
   let result = await acfh.getHash({ 
-    arrayBuffer: ArrayBuffer //e.g. ArrayBuffer generated from file through input field
+    buffer: some_ArrayBuffer //<- e.g. ArrayBuffer generated from file through input field
   })
   // RESPONSE
   {
     error: undefined,
-    type: 'arrayBuffer',
+    type: 'buffer',
     hash: 'f9ccc07b4959f5698fd30913743aacd5',
     fileSize: 158008374
   }
