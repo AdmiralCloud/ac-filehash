@@ -1,3 +1,20 @@
+<a name="0.1.1"></a>
+
+## [0.1.1](https://github.com/admiralcloud/ac-filehash/compare/v0.1.0..v0.1.1) (2022-06-15 14:19:08)
+
+
+### Bug Fix
+
+* **App:** Update version after documentation fix | VD | [45fd368db5a74f0d6e48b1efd1c73d3c0dfe14b9](https://github.com/admiralcloud/ac-filehash/commit/45fd368db5a74f0d6e48b1efd1c73d3c0dfe14b9)    
+Update version after documentation fix
+### Documentation
+
+* **App:** fix browser usage | MD | [d3fbf9e024bc5b891836ba8bb999f39b3e3d823b](https://github.com/admiralcloud/ac-filehash/commit/d3fbf9e024bc5b891836ba8bb999f39b3e3d823b)    
+Merge: a828505 de50da8  
+Merge pull request #5 from AdmiralCloud/develop-md
+* **App:** fix browser usage | MD | [de50da8269db2fb72efdef205e615f14012c911d](https://github.com/admiralcloud/ac-filehash/commit/de50da8269db2fb72efdef205e615f14012c911d)    
+fix browser buffer usage example  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
 <a name="0.1.0"></a>
  
 # [0.1.0](https://github.com/admiralcloud/ac-filehash/compare/v0.0.3..v0.1.0) (2022-06-14 16:05:58)
