@@ -6,6 +6,7 @@ node_modules
 npm-debug.log
 **/logs/**
 .nyc_output**
+**/.vscode/**
 
 ########################
 # misc / editors
