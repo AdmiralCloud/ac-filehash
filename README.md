@@ -1,5 +1,5 @@
 # AC Filehash
-Create a hash from a file. The source can be a local file, ArrayBuffer or an URL.
+Create a hash from a file. The source can be a local file, ArrayBuffer, URL or an AWS s3 bucket/key.
 
 This hash is created using 3 sections of the file - one at the beginning, one in the middle and one at the end. This way, a hash can be easily and fast created even for large files.
 
@@ -8,25 +8,12 @@ This hash is created using 3 sections of the file - one at the beginning, one in
 
 # Usage
 ## NodeJs
+
+### From local file
 ```javascript
 const acfh = require('ac-filehash')
 
-const params = {
-  url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
-}
-
 let test = async () => {
-  let result = await acfh.getHash({ 
-    url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
-  })
-  // RESPONSE
-  {
-    error: undefined,
-    type: 'url',
-    hash: 'f9ccc07b4959f5698fd30913743aacd5',
-    fileSize: 158008374
-  }
-
   let result = await acfh.getHash({ 
     filePath: './test/BigBuckBunny.mp4'
   })
@@ -40,6 +27,47 @@ let test = async () => {
 }
 test()
 ```
+### From URL
+```javascript
+const acfh = require('ac-filehash')
+
+let test = async () => {
+  let result = await acfh.getHash({ 
+    url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+  })
+  // RESPONSE
+  {
+    error: undefined,
+    type: 'url',
+    hash: 'f9ccc07b4959f5698fd30913743aacd5',
+    fileSize: 158008374
+  }
+}
+test()
+```
+
+### From AWS S3
+```javascript
+const acfh = require('ac-filehash')
+
+let test = async () => {
+  let result = await acfh.getHash({
+    bucket: 'mybucket',
+    key: 'mykey'
+  })
+  // RESPONSE
+  {
+    error: undefined,
+    type: 's3',
+    hash: 'f9ccc07b4959f5698fd30913743aacd5',
+    fileSize: 158008374
+  }
+
+ 
+}
+test()
+```
+
 ## Browser
 ```javascript
 const acfh = require('ac-filehash/browser')

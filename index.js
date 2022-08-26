@@ -1,10 +1,55 @@
 const crypto = require('crypto')
 const fs = require('fs')
 const axios = require('axios')
+const { S3Client, GetObjectCommand, HeadObjectCommand } = require("@aws-sdk/client-s3");
 
 const acfilehash = () => {
 
+  const loadS3Chunk = async(s3Params, offsetStart, offsetEnd) => {
+    const region = s3Params?.region || 'eu-central-1'
+    const clientParams = { 
+      region
+    }
+    if (s3Params?.profile) clientParams.profile = s3Params.profile
+    const client = new S3Client(clientParams)
 
+    const inputParams = {
+      Bucket: s3Params?.bucket,
+      Key: s3Params?.key,
+      Range: 'bytes=' + offsetStart + '-' + (offsetEnd-1)
+    }
+    const command = new GetObjectCommand(inputParams)
+    const { Body } = await client.send(command)
+    
+    const streamToString = (stream) =>
+      new Promise((resolve, reject) => {
+        const chunks = []
+        stream.on("data", (chunk) => chunks.push(chunk))
+        stream.on("error", reject)
+        stream.on("end", () => resolve(Buffer.concat(chunks)))
+      })
+
+    const bodyContents = await streamToString(Body);
+    return {
+      data: bodyContents
+    }
+  }
+
+  const loadS3fileSize = async(s3Params) => {
+    const region = s3Params?.region || 'eu-central-1'
+    const client = new S3Client({ region, profile: 'DEV' })
+
+    const input = {
+      Bucket: s3Params?.bucket,
+      Key: s3Params?.key,
+    }
+    const command = new HeadObjectCommand(input)
+    const response = await client.send(command)
+    return {
+      fileSize: response.ContentLength,
+      contentType: response.ContentType
+    }
+  }
 
   const loadFileChunk = async(url, offsetStart, offsetEnd) => {
     const axiosParams = {
@@ -41,15 +86,18 @@ const acfilehash = () => {
   
   const getHash = async(params) => {
     const url = params && params.url
+    const s3 = params && params.s3
     const filePath = params && params.filePath
     const chunkSize = (params && params.chunkSize) || 1 * 1024 * 1024
+    const type = url ? 'url' : s3 ? 's3' : 'file'
 
     let hash = crypto.createHash('MD5')
     let fileSize
     let error
 
-    if (url) {
-      const result = await loadFileSize(url)
+
+    if (url || s3) {
+      const result = s3 ? await loadS3fileSize(s3) : await loadFileSize(url)
       fileSize = parseInt(result.fileSize)
       if (fileSize > 0) {
         const pos = [
@@ -60,7 +108,7 @@ const acfilehash = () => {
         for (let i = 0; i < pos.length; i++) {
           const start = pos[i].start
           const end = pos[i].end
-          const chunk = await loadFileChunk(url, start, end)
+          const chunk = s3 ? await loadS3Chunk(s3, start, end) : await loadFileChunk(url, start, end)
           hash.update(chunk.data)
         }
       }
@@ -97,7 +145,7 @@ const acfilehash = () => {
     }
     return {
       error,
-      type: url ? 'url' : 'file',
+      type,
       hash:  !error && hash.digest('hex'),
       fileSize
     }

@@ -13,7 +13,7 @@ const config = {
     "brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
     "no-useless-escape": 0,
     "standard/no-callback-literal": 0,
-    "new-cap": 0
+    "new-cap": 0,
   },
   globals: {
     config: true,
@@ -21,7 +21,7 @@ const config = {
     it: true
   },
   'parserOptions': {
-    'ecmaVersion': 2018
+    'ecmaVersion': 2020
 },
 }
 
