@@ -1,3 +1,23 @@
+<a name="0.2.0"></a>
+ 
+# [0.2.0](https://github.com/admiralcloud/ac-filehash/compare/v0.1.1..v0.2.0) (2022-08-26 15:55:26)
+
+
+### Feature
+
+* **App:** Allow hash check for AWS S3 objects | MP | [8a80b230503774aa92498bdd090c30dbca787cc8](https://github.com/admiralcloud/ac-filehash/commit/8a80b230503774aa92498bdd090c30dbca787cc8)    
+File hash can now be calculated from AWS S3 object directly, without URL  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
+### Chores
+
+* **App:** Updated packages | MP | [5587a87344ebbc904aa474d10e3de15e8e720889](https://github.com/admiralcloud/ac-filehash/commit/5587a87344ebbc904aa474d10e3de15e8e720889)    
+Updated packages  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
+### Chores
+
+* **App:** Ignore VScode settings | MP | [2ea5ae2e37063dd85f7e4b421a3f88bd707a4c79](https://github.com/admiralcloud/ac-filehash/commit/2ea5ae2e37063dd85f7e4b421a3f88bd707a4c79)    
+Ignore VScode settings  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
 <a name="0.1.1"></a>
 
 ## [0.1.1](https://github.com/admiralcloud/ac-filehash/compare/v0.1.0..v0.1.1) (2022-06-15 14:19:08)
