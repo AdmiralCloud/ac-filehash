@@ -1,3 +1,13 @@
+<a name="0.2.1"></a>
+
+## [0.2.1](https://github.com/admiralcloud/ac-filehash/compare/v0.2.0..v0.2.1) (2022-08-28 07:48:52)
+
+
+### Bug Fix
+
+* **App:** Allow usage of AWS credentials as function parameters | MP | [2d39792f631cb63b647e40f3c9eb36a769bdbe48](https://github.com/admiralcloud/ac-filehash/commit/2d39792f631cb63b647e40f3c9eb36a769bdbe48)    
+You can now send AWS credentials as function parameter.  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
 <a name="0.2.0"></a>
  
 # [0.2.0](https://github.com/admiralcloud/ac-filehash/compare/v0.1.1..v0.2.0) (2022-08-26 15:55:26)
