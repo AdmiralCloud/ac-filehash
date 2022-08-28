@@ -47,13 +47,22 @@ test()
 ```
 
 ### From AWS S3
+If no credentials are sent, the one's from your local AWS configuration are used. 
+
 ```javascript
 const acfh = require('ac-filehash')
 
 let test = async () => {
   let result = await acfh.getHash({
     bucket: 'mybucket',
-    key: 'mykey'
+    key: 'mykey',
+    // optional credentials
+    credentials: {
+      accessKeyId: 'ABC',
+      secretAccessKey: 'SECRET',
+      // optional session token if you are using temporary credentials
+      sessionToken: 'token'
+    }
   })
   // RESPONSE
   {

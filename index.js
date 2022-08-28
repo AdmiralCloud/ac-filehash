@@ -8,9 +8,9 @@ const acfilehash = () => {
   const loadS3Chunk = async(s3Params, offsetStart, offsetEnd) => {
     const region = s3Params?.region || 'eu-central-1'
     const clientParams = { 
-      region
+      region,
+      credentials: s3Params.credentials
     }
-    if (s3Params?.profile) clientParams.profile = s3Params.profile
     const client = new S3Client(clientParams)
 
     const inputParams = {
@@ -37,7 +37,11 @@ const acfilehash = () => {
 
   const loadS3fileSize = async(s3Params) => {
     const region = s3Params?.region || 'eu-central-1'
-    const client = new S3Client({ region, profile: 'DEV' })
+    const clientParams = { 
+      region,
+      credentials: s3Params.credentials
+    }
+    const client = new S3Client(clientParams)
 
     const input = {
       Bucket: s3Params?.bucket,
