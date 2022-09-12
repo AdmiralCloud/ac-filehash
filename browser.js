@@ -41,6 +41,7 @@ const acfilehash = () => {
   const getHash = async (params) => {
     const url = params && params.url
     const buffer = params && params.buffer
+    const blob = params && params.blob
     const chunkSize = (params && params.chunkSize) || 1 * 1024 * 1024
 
     let hash = new SparkMD5.ArrayBuffer();
@@ -65,6 +66,26 @@ const acfilehash = () => {
       }
       else {
         error = 'invalidURL'
+      }
+    } else if (blob) {
+      try {
+        hash = new SparkMD5.ArrayBuffer();
+        fileSize = blob.size;
+
+        const pos = [
+          { position: 0 },
+          { position: Math.max(0, Math.floor(fileSize / 2 - chunkSize / 2)) },
+          { position: Math.max(0, Math.floor(fileSize - chunkSize)) },
+        ];
+        for (let i = 0; i < pos.length; i++) {
+          const length = Math.min(fileSize, chunkSize);
+          const position = pos[i].position;
+          const slice = blob.slice(position, position + length);
+          const sliceBuffer = await slice.arrayBuffer();
+          hash.append(sliceBuffer);
+        }
+      } catch (e) {
+        error = e.message;
       }
     }
     else if (buffer) {
@@ -93,7 +114,7 @@ const acfilehash = () => {
     }
     return {
       error,
-      type: url ? 'url' : 'buffer',
+      type: url ? 'url' : blob ? 'blob' : 'buffer',
       hash: !error && hash.end(),
       fileSize
     }
