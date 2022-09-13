@@ -9,10 +9,10 @@
   },
   "repository": "https://github.com/admiralcloud/ac-filehash",
   "license": "MIT",
-  "author": "Julius Eckert <julius.eckert@admiralcloud.com> (https://www.admiralcloud.com/)",
+  "author": "Julius Eckert (https://www.admiralcloud.com/)",
   "contributors": [
-    "Patrick Loboda <patrick.loboda@admiralcloud.com> (https://www.admiralcloud.com/)",
-    "Mark Poepping <mark.poepping@admiralcloud.com> (https://www.admiralcloud.com/)"
+    "Patrick Loboda (https://www.admiralcloud.com/)",
+    "Mark Poepping (https://www.admiralcloud.com/)"
   ],
   "devDependencies": {
     "ac-semantic-release": "^0.3.3",
