@@ -26,5 +26,8 @@
     "test": "mocha --timeout 15000 --reporter spec",
     "precoverage": "./test/prepareTest.sh",
     "coverage": "nyc mocha --timeout 15000 --reporter spec"
+  },
+  "engines": { 
+    "node" : ">=0.14.0" 
   }
 }
