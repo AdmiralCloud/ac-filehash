@@ -10,5 +10,7 @@ commit:
 release:
 	@node ./node_modules/ac-semantic-release/lib/release.js
 
+test-release:
+	DEBUGMODE=true node ./node_modules/ac-semantic-release/lib/release.js
 
 .PHONY: check
