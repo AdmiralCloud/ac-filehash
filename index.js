@@ -77,7 +77,8 @@ const acfilehash = () => {
         fileSize: response.headers['content-length'],
         contentType: response.headers['content-type'],
       }
-    } catch (error) {
+    }
+    catch (error) {
       return {
         status: error.status || 999,
         statusText: error.statusText || 'errorOccurred',
@@ -114,10 +115,12 @@ const acfilehash = () => {
           const chunk = s3 ? await loadS3Chunk(s3, start, end) : await loadFileChunk(url, start, end)
           hash.update(chunk.data)
         }
-      } else {
+      }
+ else {
         error = 'invalidURL'
       }
-    } else if (filePath) {
+    }
+ else if (filePath) {
       try {
         hash = crypto.createHash('MD5')
         const fd = fs.openSync(filePath, 'r')
@@ -136,10 +139,12 @@ const acfilehash = () => {
           fs.readSync(fd, buffer, 0, length, position)
           hash.update(buffer)
         }
-      } catch (e) {
+      }
+ catch (e) {
         error = e.message
       }
-    } else {
+    }
+ else {
       error = 'noSourceSet'
     }
     return {
