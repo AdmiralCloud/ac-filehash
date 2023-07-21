@@ -1,3 +1,23 @@
+<a name="0.2.3"></a>
+
+## [0.2.3](https://github.com/admiralcloud/ac-filehash/compare/v0.2.2..v0.2.3) (2023-07-21 13:04:22)
+
+
+### Bug Fix
+
+* **App:** Package updates | MP | [274b93b204f3d0527d27dab0115072f03d27cb2b](https://github.com/admiralcloud/ac-filehash/commit/274b93b204f3d0527d27dab0115072f03d27cb2b)    
+Package updates  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
+### Tests
+
+* **App:** Updated tests to use mocha/chai | MP | [a93ec762cf036315fe669d24ee9a68981aab8e74](https://github.com/admiralcloud/ac-filehash/commit/a93ec762cf036315fe669d24ee9a68981aab8e74)    
+Removed expect and use mocha/chai  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
+### Style
+
+* **App:** Fixed code styling | MP | [0b3bddc999e87e952e0e5be93ebb9da548a5f24c](https://github.com/admiralcloud/ac-filehash/commit/0b3bddc999e87e952e0e5be93ebb9da548a5f24c)    
+Fixed code styling  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
 <a name="0.2.2"></a>
 
 ## [0.2.2](https://github.com/admiralcloud/ac-filehash/compare/v0.2.1..v0.2.2) (2022-09-13 00:00:00)
