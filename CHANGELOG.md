@@ -1,3 +1,13 @@
+<a name="0.2.4"></a>
+
+## [0.2.4](https://github.com/admiralcloud/ac-filehash/compare/v0.2.3..v0.2.4) (2024-03-26 19:50:43)
+
+
+### Bug Fix
+
+* **App:** Package updates | MP | [14509cfce4445cb44ee9cb83cd010b4f4b554d29](https://github.com/admiralcloud/ac-filehash/commit/14509cfce4445cb44ee9cb83cd010b4f4b554d29)    
+Package updates  
+Related issues: [undefined/undefined#master](undefined/browse/master)
 <a name="0.2.3"></a>
 
 ## [0.2.3](https://github.com/admiralcloud/ac-filehash/compare/v0.2.2..v0.2.3) (2023-07-21 13:04:22)
