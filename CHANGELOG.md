@@ -1,3 +1,20 @@
+<a name="1.0.0"></a>
+ 
+# [1.0.0](https://github.com/admiralcloud/ac-filehash/compare/v0.2.4..v1.0.0) (2024-08-09 15:22:44)
+
+
+### Bug Fix
+
+* **App:** Package updates | MP | [406c50abb8de726b7ba1b0c59b7da47ecb7dd139](https://github.com/admiralcloud/ac-filehash/commit/406c50abb8de726b7ba1b0c59b7da47ecb7dd139)    
+Package updates  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Style
+
+* **App:** Lint fix | MP | [11b5a80bb95c3194fc13af1d7cb8e14babd86ec5](https://github.com/admiralcloud/ac-filehash/commit/11b5a80bb95c3194fc13af1d7cb8e14babd86ec5)    
+Lint ifx  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+## BREAKING CHANGES
+* **App:** Minimum Node version 18
 <a name="0.2.4"></a>
 
 ## [0.2.4](https://github.com/admiralcloud/ac-filehash/compare/v0.2.3..v0.2.4) (2024-03-26 19:50:43)
