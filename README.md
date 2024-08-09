@@ -113,8 +113,6 @@ test()
 
 ## Links
 - [Website](https://www.admiralcloud.com/)
-- [Twitter (@admiralcloud)](https://twitter.com/admiralcloud)
-- [Facebook](https://www.facebook.com/MediaAssetManagement/)
 
 ## License
 [MIT License](https://opensource.org/licenses/MIT) Copyright © 2009-present, AdmiralCloud AG
