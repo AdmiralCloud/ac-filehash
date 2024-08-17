@@ -1,3 +1,23 @@
+<a name="1.0.1"></a>
+
+## [1.0.1](https://github.com/admiralcloud/ac-filehash/compare/v1.0.0..v1.0.1) (2024-08-17 12:57:39)
+
+
+### Bug Fix
+
+* **App:** Package updates | MP | [ea9bc6c82de49121b2739631d6f1092e5fa78609](https://github.com/admiralcloud/ac-filehash/commit/ea9bc6c82de49121b2739631d6f1092e5fa78609)    
+Package updates  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Documentation
+
+* **App:** Minor adjustment | MP | [a16091e83e72ad30ae93630d74a74295493fc660](https://github.com/admiralcloud/ac-filehash/commit/a16091e83e72ad30ae93630d74a74295493fc660)    
+Minor adjustment  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Chores
+
+* **App:** Minor adjustment | MP | [4fab5ab91aa3e8e8240422aa6445a78ba840f5db](https://github.com/admiralcloud/ac-filehash/commit/4fab5ab91aa3e8e8240422aa6445a78ba840f5db)    
+Minor adjustment  
+Related issues: [undefined/undefined#master](undefined/browse/master)
 <a name="1.0.0"></a>
  
 # [1.0.0](https://github.com/admiralcloud/ac-filehash/compare/v0.2.4..v1.0.0) (2024-08-09 15:22:44)
