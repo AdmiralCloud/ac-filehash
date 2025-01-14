@@ -14,24 +14,39 @@ const acfilehash = () => {
     }
   }
 
+  const calculateChunkPositions = (fileSize, chunkSize) => {
+    return [
+      { 
+        start: 0, 
+        end: Math.min(fileSize, chunkSize) 
+      },
+      {
+        start: Math.max(0, Math.floor(fileSize / 2 - chunkSize / 2)),
+        end: Math.min(fileSize, Math.floor(fileSize / 2 + chunkSize / 2))
+      },
+      { 
+        start: Math.max(0, fileSize - chunkSize), 
+        end: fileSize 
+      }
+    ]
+  }
 
   const loadS3Chunk = async (s3Params, offsetStart, offsetEnd) => {
     const region = s3Params?.region || 'eu-central-1'
-    const clientParams = {
+    const client = new S3Client({
       region,
       credentials: s3Params.credentials,
-    }
-    const client = new S3Client(clientParams)
+    })
 
-    const inputParams = {
+    const command = new GetObjectCommand({
       Bucket: s3Params?.bucket,
       Key: s3Params?.key,
-      Range: 'bytes=' + offsetStart + '-' + (offsetEnd - 1),
-    }
-    const command = new GetObjectCommand(inputParams)
+      Range: `bytes=${offsetStart}-${offsetEnd - 1}`,
+    })
+    
     const { Body } = await client.send(command)
 
-    const streamToString = (stream) =>
+    const streamToBuffer = (stream) =>
       new Promise((resolve, reject) => {
         const chunks = []
         stream.on('data', (chunk) => chunks.push(chunk))
@@ -39,7 +54,7 @@ const acfilehash = () => {
         stream.on('end', () => resolve(Buffer.concat(chunks)))
       })
 
-    const bodyContents = await streamToString(Body)
+    const bodyContents = await streamToBuffer(Body)
     return {
       data: bodyContents,
     }
@@ -47,17 +62,16 @@ const acfilehash = () => {
 
   const loadS3fileSize = async (s3Params) => {
     const region = s3Params?.region || 'eu-central-1'
-    const clientParams = {
+    const client = new S3Client({
       region,
       credentials: s3Params.credentials,
-    }
-    const client = new S3Client(clientParams)
+    })
 
-    const input = {
+    const command = new HeadObjectCommand({
       Bucket: s3Params?.bucket,
       Key: s3Params?.key,
-    }
-    const command = new HeadObjectCommand(input)
+    })
+    
     const response = await client.send(command)
     return {
       fileSize: response.ContentLength,
@@ -72,7 +86,7 @@ const acfilehash = () => {
       url,
       method: 'GET',
       headers: {
-        Range: 'bytes=' + offsetStart + '-' + (offsetEnd - 1),
+        Range: `bytes=${offsetStart}-${offsetEnd - 1}`,
       },
       responseType: 'arraybuffer',
       timeout: TIMEOUT
@@ -104,13 +118,13 @@ const acfilehash = () => {
   }
 
   const getHash = async (params) => {
-    const url = params && params.url
-    const s3 = params && params.s3
-    const filePath = params && params.filePath
-    const chunkSize = (params && params.chunkSize) || 1 * 1024 * 1024
+    const url = params?.url
+    const s3 = params?.s3
+    const filePath = params?.filePath
+    const chunkSize = params?.chunkSize || 1 * 1024 * 1024
     const type = url ? 'url' : s3 ? 's3' : 'file'
 
-    let hash = crypto.createHash('MD5')
+    const hash = crypto.createHash('MD5')
     let fileSize
     let error
 
@@ -118,19 +132,14 @@ const acfilehash = () => {
       try {
         const result = s3 ? await loadS3fileSize(s3) : await loadFileSize(url)
         fileSize = parseInt(result.fileSize)
+        
         if (fileSize > 0) {
-          const pos = [
-            { start: 0, end: Math.min(fileSize, chunkSize) },
-            {
-              start: Math.max(0, Math.floor(fileSize / 2 - chunkSize / 2)),
-              end: Math.min(fileSize, Math.max(0, Math.floor(fileSize / 2 - chunkSize / 2)) + chunkSize),
-            },
-            { start: Math.max(0, Math.floor(fileSize - chunkSize)), end: fileSize },
-          ]
-          for (let i = 0; i < pos.length; i++) {
-            const start = pos[i].start
-            const end = pos[i].end
-            const chunk = s3 ? await loadS3Chunk(s3, start, end) : await loadFileChunk(url, start, end)
+          const positions = calculateChunkPositions(fileSize, chunkSize)
+          
+          for (const pos of positions) {
+            const chunk = s3 
+              ? await loadS3Chunk(s3, pos.start, pos.end) 
+              : await loadFileChunk(url, pos.start, pos.end)
             hash.update(chunk.data)
           }
         }
@@ -144,29 +153,31 @@ const acfilehash = () => {
     }
     else if (filePath) {
       try {
-        hash = crypto.createHash('MD5')
-        const fd = fs.openSync(filePath, 'r')
         const file = fs.statSync(filePath)
         fileSize = parseInt(file.size)
-
-        const pos = [
-          { position: 0 },
-          { position: Math.max(0, Math.floor(fileSize / 2 - chunkSize / 2)) },
-          { position: Math.max(0, Math.floor(fileSize - chunkSize)) },
-        ]
-        for (let i = 0; i < pos.length; i++) {
-          const length = Math.min(fileSize, chunkSize)
-          const position = pos[i].position
-          const buffer = Buffer.alloc(length)
-          fs.readSync(fd, buffer, 0, length, position)
-          hash.update(buffer)
+        
+        if (fileSize > 0) {
+          const fd = fs.openSync(filePath, 'r')
+          const positions = calculateChunkPositions(fileSize, chunkSize)
+          
+          for (const pos of positions) {
+            const length = pos.end - pos.start
+            const buffer = Buffer.alloc(length)
+            fs.readSync(fd, buffer, 0, length, pos.start)
+            hash.update(buffer)
+          }
+          
+          fs.closeSync(fd)
+        }
+        else {
+          error = 'invalidURL'
         }
       }
       catch (e) {
         error = e.message
       }
     }
-    else {
+     else {
       error = 'noSourceSet'
     }
     

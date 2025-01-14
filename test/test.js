@@ -35,7 +35,7 @@ describe('Compare values', () => {
 
   it('Test non existing local file', async () => {
     const test = await acfh.getHash({ filePath: './test/testfile1.mp4' })
-    expect(test.error).to.eql("ENOENT: no such file or directory, open './test/testfile1.mp4'")
+    expect(test.error).to.eql("ENOENT: no such file or directory, stat './test/testfile1.mp4'")
   })
 
   it('Test invalid url', async () => {
