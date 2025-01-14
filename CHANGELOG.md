@@ -1,3 +1,38 @@
+<a name="1.0.2"></a>
+
+## [1.0.2](https://github.com/admiralcloud/ac-filehash/compare/v1.0.1..v1.0.2) (2025-01-14 09:40:47)
+
+
+### Bug Fix
+
+* **App:** Improved code quality | MP | [dc03dce095fdf09a361e6a260986daa84cf3a6d4](https://github.com/admiralcloud/ac-filehash/commit/dc03dce095fdf09a361e6a260986daa84cf3a6d4)    
+Reduce duplicates  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+* **App:** Improved code quality | MP | [802192fae8888d4f86976b79db5f7737e604b90f](https://github.com/admiralcloud/ac-filehash/commit/802192fae8888d4f86976b79db5f7737e604b90f)    
+Removed duplicate code  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+* **App:** Improved code quality | MP | [b62cb61c7588e967ac2d302faebe60e777dd909d](https://github.com/admiralcloud/ac-filehash/commit/b62cb61c7588e967ac2d302faebe60e777dd909d)    
+Improved code quality  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+* **App:** Minor code quality fixes | MP | [0bc054000b86a1714286c85d04352c02e49731ac](https://github.com/admiralcloud/ac-filehash/commit/0bc054000b86a1714286c85d04352c02e49731ac)    
+Validate URL protocol, improved overall code quality  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Chores
+
+* **App:** Updated packages | MP | [21be2f525589a905e4cb18eadcacc135129388d5](https://github.com/admiralcloud/ac-filehash/commit/21be2f525589a905e4cb18eadcacc135129388d5)    
+Updated packages  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+* **App:** Updated packages | MP | [8644584f5fefffd7649cfa94d8009db040d20831](https://github.com/admiralcloud/ac-filehash/commit/8644584f5fefffd7649cfa94d8009db040d20831)    
+Updated packages  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Chores
+
+* **App:** Added code quality badge | MP | [986153b4810d596126e5e8e0202053dca1c6bd3a](https://github.com/admiralcloud/ac-filehash/commit/986153b4810d596126e5e8e0202053dca1c6bd3a)    
+Added code quality badge  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+* **App:** Fixed acsemver | MP | [d3f42e5e46bfa4303db1f0cf5cc061596b2ad676](https://github.com/admiralcloud/ac-filehash/commit/d3f42e5e46bfa4303db1f0cf5cc061596b2ad676)    
+Fixed acsemver  
+Related issues: [undefined/undefined#master](undefined/browse/master)
 <a name="1.0.1"></a>
 
 ## [1.0.1](https://github.com/admiralcloud/ac-filehash/compare/v1.0.0..v1.0.1) (2024-08-17 12:57:39)
