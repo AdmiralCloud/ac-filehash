@@ -1,4 +1,7 @@
 # AC Filehash
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cc40ba0045d94e0a985f4dd07394345c)](https://app.codacy.com/gh/AdmiralCloud/ac-filehash?utm_source=github.com&utm_medium=referral&utm_content=AdmiralCloud/ac-filehash&utm_campaign=Badge_Grade)
+
 Create a hash from a file. The source can be a local file, ArrayBuffer, URL or an AWS s3 bucket/key.
 
 This hash is created using 3 sections of the file - one at the beginning, one in the middle and one at the end. This way, a hash can be easily and fast created even for large files.
