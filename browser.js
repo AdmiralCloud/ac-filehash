@@ -1,8 +1,7 @@
 const SparkMD5 = require('spark-md5')
-const axios = require('axios')
-const { TIMEOUT, validateUrl, createHasher } = require('./core')
+const { validateUrl, getUrlFileSize, loadUrlChunk, createHasher } = require('./core')
 
-const implementation = {
+const browserImplementation = {
   createHash() {
     return new SparkMD5.ArrayBuffer()
   },
@@ -18,20 +17,7 @@ const implementation = {
   async getFileSize({ url, blob, buffer }) {
     if (url) {
       validateUrl(url)
-      try {
-        const response = await axios({
-          url,
-          method: 'HEAD',
-          timeout: TIMEOUT
-        })
-        return {
-          fileSize: response.headers['content-length'],
-          contentType: response.headers['content-type']
-        }
-      }
-      catch {
-        throw new Error('invalidURL')
-      }
+      return await getUrlFileSize(url)
     }
     
     if (blob) return { fileSize: blob.size }
@@ -42,21 +28,7 @@ const implementation = {
   async loadChunk({ url, blob, buffer, start, end }) {
     if (url) {
       validateUrl(url)
-      try {
-        const response = await axios({
-          url,
-          method: 'GET',
-          headers: {
-            Range: `bytes=${start}-${end - 1}`,
-          },
-          responseType: 'arraybuffer',
-          timeout: TIMEOUT
-        })
-        return response.data
-      }
-      catch {
-        throw new Error('invalidURL')
-      }
+      return await loadUrlChunk(url, start, end)
     }
     
     if (blob) {
@@ -72,4 +44,4 @@ const implementation = {
   }
 }
 
-module.exports = createHasher(implementation)
+module.exports = createHasher(browserImplementation)

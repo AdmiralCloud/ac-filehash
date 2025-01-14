@@ -1,10 +1,17 @@
 const crypto = require('crypto')
 const fs = require('fs')
-const axios = require('axios')
 const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3')
-const { TIMEOUT, validateUrl, createHasher } = require('./core')
+const { validateUrl, getUrlFileSize, loadUrlChunk, createHasher } = require('./core')
 
-const implementation = {
+const streamToBuffer = (stream) =>
+  new Promise((resolve, reject) => {
+    const chunks = []
+    stream.on('data', (chunk) => chunks.push(chunk))
+    stream.on('error', reject)
+    stream.on('end', () => resolve(Buffer.concat(chunks)))
+  })
+
+const nodeImplementation = {
   createHash() {
     return crypto.createHash('MD5')
   },
@@ -20,20 +27,7 @@ const implementation = {
   async getFileSize({ url, s3, filePath }) {
     if (url) {
       validateUrl(url)
-      try {
-        const response = await axios({
-          url,
-          method: 'HEAD',
-          timeout: TIMEOUT
-        })
-        return {
-          fileSize: response.headers['content-length'],
-          contentType: response.headers['content-type']
-        }
-      }
-      catch {
-        throw new Error('invalidURL')
-      }
+      return await getUrlFileSize(url)
     }
 
     if (s3) {
@@ -64,21 +58,7 @@ const implementation = {
   async loadChunk({ url, s3, filePath, start, end }) {
     if (url) {
       validateUrl(url)
-      try {
-        const response = await axios({
-          url,
-          method: 'GET',
-          headers: {
-            Range: `bytes=${start}-${end - 1}`,
-          },
-          responseType: 'arraybuffer',
-          timeout: TIMEOUT
-        })
-        return response.data
-      }
-      catch {
-        throw new Error('invalidURL')
-      }
+      return await loadUrlChunk(url, start, end)
     }
 
     if (s3) {
@@ -109,13 +89,4 @@ const implementation = {
   }
 }
 
-// Helper function for S3 streams
-const streamToBuffer = (stream) =>
-  new Promise((resolve, reject) => {
-    const chunks = []
-    stream.on('data', (chunk) => chunks.push(chunk))
-    stream.on('error', reject)
-    stream.on('end', () => resolve(Buffer.concat(chunks)))
-  })
-
-module.exports = createHasher(implementation)
+module.exports = createHasher(nodeImplementation)
