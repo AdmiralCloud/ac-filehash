@@ -4,6 +4,6 @@ module.exports = {
   },
   changelogFile: __dirname + '/CHANGELOG.md',
   sections: [
-    {name: 'App' }
+    { name: 'App' }
   ],
 }
