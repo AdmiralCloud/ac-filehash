@@ -4,6 +4,17 @@ const axios = require('axios')
 const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3')
 
 const acfilehash = () => {
+  const TIMEOUT = 30000
+  const ALLOWED_PROTOCOLS = ['http:', 'https:']
+
+  const validateUrl = (url) => {
+    const parsedUrl = new URL(url)
+    if (!ALLOWED_PROTOCOLS.includes(parsedUrl.protocol)) {
+      throw new Error('invalidProtocol')
+    }
+  }
+
+
   const loadS3Chunk = async (s3Params, offsetStart, offsetEnd) => {
     const region = s3Params?.region || 'eu-central-1'
     const clientParams = {
@@ -55,6 +66,8 @@ const acfilehash = () => {
   }
 
   const loadFileChunk = async (url, offsetStart, offsetEnd) => {
+    validateUrl(url)
+
     const axiosParams = {
       url,
       method: 'GET',
@@ -62,15 +75,19 @@ const acfilehash = () => {
         Range: 'bytes=' + offsetStart + '-' + (offsetEnd - 1),
       },
       responseType: 'arraybuffer',
+      timeout: TIMEOUT
     }
     return await axios(axiosParams)
   }
 
   const loadFileSize = async (url) => {
+    validateUrl(url)
+
     try {
       const axiosParams = {
         url,
         method: 'HEAD',
+        timeout: TIMEOUT
       }
       const response = await axios(axiosParams)
       return {
@@ -98,29 +115,34 @@ const acfilehash = () => {
     let error
 
     if (url || s3) {
-      const result = s3 ? await loadS3fileSize(s3) : await loadFileSize(url)
-      fileSize = parseInt(result.fileSize)
-      if (fileSize > 0) {
-        const pos = [
-          { start: 0, end: Math.min(fileSize, chunkSize) },
-          {
-            start: Math.max(0, Math.floor(fileSize / 2 - chunkSize / 2)),
-            end: Math.min(fileSize, Math.max(0, Math.floor(fileSize / 2 - chunkSize / 2)) + chunkSize),
-          },
-          { start: Math.max(0, Math.floor(fileSize - chunkSize)), end: fileSize },
-        ]
-        for (let i = 0; i < pos.length; i++) {
-          const start = pos[i].start
-          const end = pos[i].end
-          const chunk = s3 ? await loadS3Chunk(s3, start, end) : await loadFileChunk(url, start, end)
-          hash.update(chunk.data)
+      try {
+        const result = s3 ? await loadS3fileSize(s3) : await loadFileSize(url)
+        fileSize = parseInt(result.fileSize)
+        if (fileSize > 0) {
+          const pos = [
+            { start: 0, end: Math.min(fileSize, chunkSize) },
+            {
+              start: Math.max(0, Math.floor(fileSize / 2 - chunkSize / 2)),
+              end: Math.min(fileSize, Math.max(0, Math.floor(fileSize / 2 - chunkSize / 2)) + chunkSize),
+            },
+            { start: Math.max(0, Math.floor(fileSize - chunkSize)), end: fileSize },
+          ]
+          for (let i = 0; i < pos.length; i++) {
+            const start = pos[i].start
+            const end = pos[i].end
+            const chunk = s3 ? await loadS3Chunk(s3, start, end) : await loadFileChunk(url, start, end)
+            hash.update(chunk.data)
+          }
+        }
+        else {
+          error = 'invalidURL'
         }
       }
- else {
-        error = 'invalidURL'
+      catch(e) {
+        error = e.message     
       }
     }
- else if (filePath) {
+    else if (filePath) {
       try {
         hash = crypto.createHash('MD5')
         const fd = fs.openSync(filePath, 'r')
@@ -140,13 +162,14 @@ const acfilehash = () => {
           hash.update(buffer)
         }
       }
- catch (e) {
+      catch (e) {
         error = e.message
       }
     }
- else {
+    else {
       error = 'noSourceSet'
     }
+    
     return {
       error,
       type,
