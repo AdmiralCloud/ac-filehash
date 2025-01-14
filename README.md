@@ -3,7 +3,7 @@ Create a hash from a file. The source can be a local file, ArrayBuffer, URL or a
 
 This hash is created using 3 sections of the file - one at the beginning, one in the middle and one at the end. This way, a hash can be easily and fast created even for large files.
 
-![example workflow](https://github.com/admiralcloud/ac-filehash/actions/workflows/node.js.yml/badge.svg)
+![example workflow](https://github.com/admiralcloud/ac-filehash/actions/workflows/node.js.yml/badge.svg) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4dabe74bfb954f419ca992d65ddd8212)](https://app.codacy.com/gh/AdmiralCloud/ac-filehash/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 
 # Usage
