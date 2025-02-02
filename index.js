@@ -32,10 +32,12 @@ const nodeImplementation = {
 
     if (s3) {
       const region = s3?.region || 'eu-central-1'
-      const client = new S3Client({
+      const s3Params = {
         region,
-        credentials: s3.credentials,
-      })
+      }
+      if (s3.credentials) s3Params.credentials = s3.credentials
+      const client = new S3Client(s3Params)
+
       const command = new HeadObjectCommand({
         Bucket: s3?.bucket,
         Key: s3?.key,
@@ -63,10 +65,12 @@ const nodeImplementation = {
 
     if (s3) {
       const region = s3?.region || 'eu-central-1'
-      const client = new S3Client({
+      const s3Params = {
         region,
-        credentials: s3.credentials,
-      })
+      }
+      if (s3.credentials) s3Params.credentials = s3.credentials
+      const client = new S3Client(s3Params)
+
       const command = new GetObjectCommand({
         Bucket: s3?.bucket,
         Key: s3?.key,
