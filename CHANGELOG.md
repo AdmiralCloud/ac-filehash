@@ -1,3 +1,13 @@
+<a name="1.0.3"></a>
+
+## [1.0.3](https://github.com/admiralcloud/ac-filehash/compare/v1.0.2..v1.0.3) (2025-02-02 16:18:40)
+
+
+### Bug Fix
+
+* **App:** S3 credentials are optional | MP | [ac246828a875b4fb8da9cced386fc2b6943d10c4](https://github.com/admiralcloud/ac-filehash/commit/ac246828a875b4fb8da9cced386fc2b6943d10c4)    
+If you do not set s3 credentials, they are taken from local AWS config  
+Related issues: [undefined/undefined#master](undefined/browse/master)
 <a name="1.0.2"></a>
 
 ## [1.0.2](https://github.com/admiralcloud/ac-filehash/compare/v1.0.1..v1.0.2) (2025-01-14 09:40:47)
