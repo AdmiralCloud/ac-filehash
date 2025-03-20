@@ -1,4 +1,13 @@
 
+## [1.0.5](https://github.com/admiralcloud/ac-filehash/compare/v1.0.4..v1.0.5) (2025-03-20 19:13:33)
+
+
+### Bug Fix
+
+* **App:** Package updates | MP | [fb5da5cade1cac3e89147163a31589ad4310b327](https://github.com/admiralcloud/ac-filehash/commit/fb5da5cade1cac3e89147163a31589ad4310b327)    
+Package updates  
+Related issues:
+
 ## [1.0.4](https://github.com/admiralcloud/ac-filehash/compare/v1.0.3..v1.0.4) (2025-02-02 16:21:25)
 
 
