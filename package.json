@@ -3,8 +3,8 @@
   "description": "Create a hash for local files or from URL without loading the complete file",
   "version": "1.0.6",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.848.0",
-    "axios": "^1.10.0",
+    "@aws-sdk/client-s3": "^3.914.0",
+    "axios": "^1.12.2",
     "spark-md5": "^3.0.2"
   },
   "repository": "https://github.com/admiralcloud/ac-filehash",
@@ -15,11 +15,11 @@
     "Mark Poepping (https://www.admiralcloud.com/)"
   ],
   "devDependencies": {
-    "ac-semantic-release": "^0.4.6",
+    "ac-semantic-release": "^0.4.8",
     "c8": "^10.1.3",
     "chai": "^4.5.0",
-    "eslint": "^9.31.0",
-    "mocha": "^11.7.1"
+    "eslint": "^9.38.0",
+    "mocha": "^11.7.4"
   },
   "scripts": {
     "pretest": "./test/prepareTest.sh",
