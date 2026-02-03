@@ -28,7 +28,7 @@
     "coverage": "./node_modules/c8/bin/c8.js yarn test"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "resolutions": {
     "mocha/chokidar/braces": "^3.0.3",
