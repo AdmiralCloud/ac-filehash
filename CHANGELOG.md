@@ -1,3 +1,20 @@
+ 
+# [2.0.0](https://github.com/admiralcloud/ac-filehash/compare/v1.0.9..v2.0.0) (2026-02-03 09:12:23)
+
+
+### Chores
+
+* **Misc:** Fixed badge | MP | [a7e3d4bc62efb466a1c776dde92f615fa60ede9e](https://github.com/admiralcloud/ac-filehash/commit/a7e3d4bc62efb466a1c776dde92f615fa60ede9e)    
+Fixed badge  
+Related issues:
+* **Misc:** Minimum version Node20 | MP | [33d765415dca5e9b1c291910fd6dc9a9cc4a07fc](https://github.com/admiralcloud/ac-filehash/commit/33d765415dca5e9b1c291910fd6dc9a9cc4a07fc)    
+Minimum version Node20  
+Related issues:
+* **App:** Add permission to workflow | MP | [40f85c54e267365c227510d50d30ab9f20ba382f](https://github.com/admiralcloud/ac-filehash/commit/40f85c54e267365c227510d50d30ab9f20ba382f)    
+Add permission to workflow  
+Related issues:
+## BREAKING CHANGES
+* **Misc:** Requires Node 20+
 
 ## [1.0.9](https://github.com/admiralcloud/ac-filehash/compare/v1.0.8..v1.0.9) (2026-02-03 08:08:22)
 
