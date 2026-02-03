@@ -1,7 +1,7 @@
 {
   "name": "ac-filehash",
   "description": "Create a hash for local files or from URL without loading the complete file",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.981.0",
     "axios": "^1.13.4",
