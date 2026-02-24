@@ -1,3 +1,22 @@
+
+## [2.0.1](https://github.com/admiralcloud/ac-filehash/compare/v2.0.0..v2.0.1) (2026-02-24 18:44:51)
+
+
+### Bug Fix
+
+* **Misc:** Updated packages | MP | [23e2dd9643203f13f7d35c2dd926af9676945c3d](https://github.com/admiralcloud/ac-filehash/commit/23e2dd9643203f13f7d35c2dd926af9676945c3d)    
+Updated packages  
+Related issues:
+### Tests
+
+* **Misc:** Fixed tests | MP | [36249095f54151d349fa1611314ce012015dc03f](https://github.com/admiralcloud/ac-filehash/commit/36249095f54151d349fa1611314ce012015dc03f)    
+Fixed URL for test  
+Related issues:
+### Style
+
+* **Misc:** Lint fix | MP | [80e9c244b480c2e65b3a104364f5c953a6c3a1b4](https://github.com/admiralcloud/ac-filehash/commit/80e9c244b480c2e65b3a104364f5c953a6c3a1b4)    
+Lint fix  
+Related issues:
  
 # [2.0.0](https://github.com/admiralcloud/ac-filehash/compare/v1.0.9..v2.0.0) (2026-02-03 09:12:23)
 
