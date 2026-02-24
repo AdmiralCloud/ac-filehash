@@ -3,10 +3,8 @@ const { expect } = require('chai')
 const acfh = require('../index')
 const acfhBrowser = require('../browser')
 
+const url = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
 const expectedHash = 'f9ccc07b4959f5698fd30913743aacd5'
-
-// Codacy "Innaccurate Numeric Literal"
-// codacy-disable-next-line
 const expectedFileSize = 158008374
 
 const expectationCheck = (test) => {
@@ -24,7 +22,7 @@ describe('Compare values', () => {
   })
 
   it('Test URL', async () => {
-    const test = await acfh.getHash({ url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' })
+    const test = await acfh.getHash({ url })
     expectationCheck(test)
   })
 
@@ -57,7 +55,7 @@ describe('Compare values', () => {
   })
 
   it('Browser function - Test URL', async () => {
-    const test = await acfhBrowser.getHash({ url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' })
+    const test = await acfhBrowser.getHash({ url })
     expectationCheck(test)
   })
 
