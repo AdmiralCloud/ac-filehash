@@ -35,7 +35,7 @@ const nodeImplementation = {
       const s3Params = {
         region,
       }
-      if (s3.credentials) s3Params.credentials = s3.credentials
+      if (s3.credentials) { s3Params.credentials = s3.credentials }
       const client = new S3Client(s3Params)
 
       const command = new HeadObjectCommand({
@@ -68,7 +68,7 @@ const nodeImplementation = {
       const s3Params = {
         region,
       }
-      if (s3.credentials) s3Params.credentials = s3.credentials
+      if (s3.credentials) { s3Params.credentials = s3.credentials }
       const client = new S3Client(s3Params)
 
       const command = new GetObjectCommand({
