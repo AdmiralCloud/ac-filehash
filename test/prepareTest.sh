@@ -8,6 +8,6 @@ if [ -f $FILE ]; then
 else
   echo "Local test file - MISSING"
   echo "Starting download"
-  curl -o $FILE 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+  curl -o $FILE 'https://www.w3schools.com/html/mov_bbb.mp4'
   echo "Download completed"
 fi
