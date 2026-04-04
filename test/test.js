@@ -4,15 +4,13 @@ const acfh = require('../index')
 const acfhBrowser = require('../browser')
 
 const url = 'https://www.w3schools.com/html/mov_bbb.mp4'
-const expectedHash = 'f9ccc07b4959f5698fd30913743aacd5'
-const expectedFileSize = 158008374
-const expectedUrlHash = '36b8a0600d15fda64892726b94cc43fd'
-const expectedUrlFileSize = 788493
+const expectedHash = '36b8a0600d15fda64892726b94cc43fd'
+const expectedFileSize = 788493
 
 const expectationCheck = (test) => {
   expect(test.type).to.eql('url')
-  expect(test.hash).to.eql(expectedUrlHash)
-  expect(test.fileSize).to.eql(expectedUrlFileSize)
+  expect(test.hash).to.eql(expectedHash)
+  expect(test.fileSize).to.eql(expectedFileSize)
 }
 
 describe('Compare values', () => {
