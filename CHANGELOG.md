@@ -1,3 +1,11 @@
+## [2.0.5](https://github.com/admiralcloud/ac-filehash/compare/v2.0.4..v2.0.5) (2026-04-17 08:17:05)
+
+
+### Bug Fix
+
+
+* **Security:** Pin axios/follow-redirects to >=1.16.0 via resolutions | MP | [0d65eee04e17acc6f606f70747963f31808d7e2f](https://github.com/admiralcloud/ac-filehash/commit/0d65eee04e17acc6f606f70747963f31808d7e2f)    
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 ## [2.0.4](https://github.com/admiralcloud/ac-filehash/compare/v2.0.3..v2.0.4) (2026-04-17 07:28:06)
 
 
