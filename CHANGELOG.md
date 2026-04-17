@@ -1,3 +1,14 @@
+## [2.0.4](https://github.com/admiralcloud/ac-filehash/compare/v2.0.3..v2.0.4) (2026-04-17 07:28:06)
+
+
+### Bug Fix
+
+
+* **App:** Package updates | MP | [e97384ae605bd6b9e61213df024b860f6ca372a0](https://github.com/admiralcloud/ac-filehash/commit/e97384ae605bd6b9e61213df024b860f6ca372a0)    
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+* **App:** Package updates | MP | [91a2239ffff4324148a8f9a3d9e5c58dba1f5382](https://github.com/admiralcloud/ac-filehash/commit/91a2239ffff4324148a8f9a3d9e5c58dba1f5382)    
+Package updates  
+Related issues:
 ## [2.0.3](https://github.com/admiralcloud/ac-filehash/compare/v2.0.2..v2.0.3) (2026-04-04 08:14:23)
 
 
