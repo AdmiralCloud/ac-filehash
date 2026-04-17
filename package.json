@@ -32,7 +32,6 @@
     "node": ">=20.0.0"
   },
   "resolutions": {
-    "mocha/chokidar/braces": "^3.0.3",
     "mocha/diff": "^8.0.3",
     "minimatch": "^10.2.1",
     "mocha/serialize-javascript": "^7.0.3",
