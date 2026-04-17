@@ -3,7 +3,7 @@ Create a hash from a file. The source can be a local file, ArrayBuffer, URL or a
 
 This hash is created using 3 sections of the file - one at the beginning, one in the middle and one at the end. This way, a hash can be easily and fast created even for large files.
 
-[![Node.js CI](https://github.com/AdmiralCloud/ac-filehash/actions/workflows/node.js.yml/badge.svg)](https://github.com/AdmiralCloud/ac-filehash/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/AdmiralCloud/ac-filehash/actions/workflows/node.js.yml/badge.svg)](https://github.com/AdmiralCloud/ac-filehash/actions/workflows/node.js.yml) [![CodeQL](https://github.com/AdmiralCloud/ac-filehash/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/AdmiralCloud/ac-filehash/actions/workflows/github-code-scanning/codeql)
 
 
 # Usage
@@ -33,14 +33,14 @@ const acfh = require('ac-filehash')
 
 let test = async () => {
   let result = await acfh.getHash({ 
-    url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+    url: 'https://www.w3schools.com/html/mov_bbb.mp4'
   })
   // RESPONSE
   {
     error: undefined,
     type: 'url',
-    hash: 'f9ccc07b4959f5698fd30913743aacd5',
-    fileSize: 158008374
+    hash: '36b8a0600d15fda64892726b94cc43fd',
+    fileSize: 788493
   }
 }
 test()
@@ -81,20 +81,16 @@ test()
 ```javascript
 const acfh = require('ac-filehash/browser')
 
-const params = {
-  url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
-}
-
 let test = async () => {
   let result = await acfh.getHash({ 
-    url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+    url: 'https://www.w3schools.com/html/mov_bbb.mp4'
   })
   // RESPONSE
   {
     error: undefined,
     type: 'url',
-    hash: 'f9ccc07b4959f5698fd30913743aacd5',
-    fileSize: 158008374
+    hash: '36b8a0600d15fda64892726b94cc43fd',
+    fileSize: 788493
   }
 
   let result = await acfh.getHash({ 

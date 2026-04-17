@@ -120,12 +120,12 @@ const createHasher = (implementation) => {
 }
 
 const determineType = (params) => {
-  if (!params) return 'unknown'
-  if (params.url) return 'url'
-  if (params.s3) return 's3'
-  if (params.filePath) return 'file'
-  if (params.blob) return 'blob'
-  if (params.buffer) return 'buffer'
+  if (!params) { return 'unknown' }
+  if (params.url) { return 'url' }
+  if (params.s3) { return 's3' }
+  if (params.filePath) { return 'file' }
+  if (params.blob) { return 'blob' }
+  if (params.buffer) { return 'buffer' }
   return 'unknown'
 }
 

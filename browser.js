@@ -20,8 +20,8 @@ const browserImplementation = {
       return await getUrlFileSize(url)
     }
     
-    if (blob) return { fileSize: blob.size }
-    if (buffer) return { fileSize: buffer.byteLength }
+    if (blob) { return { fileSize: blob.size } }
+    if (buffer) { return { fileSize: buffer.byteLength } }
     throw new Error('noSourceSet')
   },
 
