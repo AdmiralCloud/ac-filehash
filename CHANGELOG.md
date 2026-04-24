@@ -1,3 +1,17 @@
+## [2.0.6](https://github.com/admiralcloud/ac-filehash/compare/v2.0.5..v2.0.6) (2026-04-24 18:01:01)
+
+
+### Bug Fix
+
+
+* **App:** Package updates | MP | [97ae125caf93905484c60645d5bff40fc138d18d](https://github.com/admiralcloud/ac-filehash/commit/97ae125caf93905484c60645d5bff40fc138d18d)    
+Package updates  
+Related issues:
+### Chores
+
+
+* **App:** Remove obsolete mocha/chokidar/braces resolution | MP | [9ecde5ee56f87d532b1d0d37bd608d6999267cbd](https://github.com/admiralcloud/ac-filehash/commit/9ecde5ee56f87d532b1d0d37bd608d6999267cbd)    
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 ## [2.0.5](https://github.com/admiralcloud/ac-filehash/compare/v2.0.4..v2.0.5) (2026-04-17 08:17:05)
 
 
