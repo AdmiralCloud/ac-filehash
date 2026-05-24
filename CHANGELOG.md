@@ -1,3 +1,12 @@
+## [2.0.7](https://github.com/admiralcloud/ac-filehash/compare/v2.0.6..v2.0.7) (2026-05-24 13:21:07)
+
+
+### Bug Fix
+
+
+* **App:** Package updates | MP | [20a878b632326e242cad78451d578231102f82bd](https://github.com/admiralcloud/ac-filehash/commit/20a878b632326e242cad78451d578231102f82bd)    
+Package updates  
+Related issues:
 ## [2.0.6](https://github.com/admiralcloud/ac-filehash/compare/v2.0.5..v2.0.6) (2026-04-24 18:01:01)
 
 
