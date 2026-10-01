@@ -1,3 +1,18 @@
+## [2.0.8](https://github.com/admiralcloud/ac-filehash/compare/v2.0.7..v2.0.8) (2026-10-01 15:54:18)
+
+
+### Tests
+
+
+* **App:** Improved test coverage | MP | [def0489513e92f20ee1d487db496ad6c5210d5f6](https://github.com/admiralcloud/ac-filehash/commit/def0489513e92f20ee1d487db496ad6c5210d5f6)    
+Added more tests. No longer rely on real external URls - mock with local http server  
+Related issues:
+### Chores
+
+
+* **App:** Updated packages | MP | [7f07d9d422fd9324028595b94772f4ec9d5bfbfb](https://github.com/admiralcloud/ac-filehash/commit/7f07d9d422fd9324028595b94772f4ec9d5bfbfb)    
+Updated packages  
+Related issues:
 ## [2.0.7](https://github.com/admiralcloud/ac-filehash/compare/v2.0.6..v2.0.7) (2026-05-24 13:21:07)
 
 
